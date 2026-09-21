@@ -1,0 +1,398 @@
+[
+  {
+    "ClienteId": "CLI-06",
+    "ProdutoId": "b44fcf01-e8e9-4dd5-b6e5-1b694dad912b",
+    "ValorTotal": 120.00,
+    "DataVenda": "2026-06-04T12:00:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "177.185.10.15"
+  },
+  {
+    "ClienteId": "CLI-07",
+    "ProdutoId": "b775f1fe-8486-424e-aaf3-25d01f8f69c4",
+    "ValorTotal": 250.00,
+    "DataVenda": "2026-06-04T12:05:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "189.12.44.12"
+  },
+  {
+    "ClienteId": "CLI-08",
+    "ProdutoId": "b84e8199-776c-41f6-b714-e7f9921dcd35",
+    "ValorTotal": 85.50,
+    "DataVenda": "2026-06-04T12:10:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "45.160.20.18"
+  },
+  {
+    "ClienteId": "CLI-09",
+    "ProdutoId": "c55cfa6a-dc77-4e79-b55e-816b55858297",
+    "ValorTotal": 310.00,
+    "DataVenda": "2026-06-04T12:15:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "201.78.99.25"
+  },
+  {
+    "ClienteId": "CLI-10",
+    "ProdutoId": "c8d6dd8a-83b7-402a-bdea-e46609d906e8",
+    "ValorTotal": 140.00,
+    "DataVenda": "2026-06-04T12:20:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "190.89.23.22"
+  },
+  {
+    "ClienteId": "CLI-11",
+    "ProdutoId": "cbded3d9-275a-4bd8-a709-e363e17e5b2c",
+    "ValorTotal": 450.00,
+    "DataVenda": "2026-06-04T12:25:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "177.185.11.20"
+  },
+  {
+    "ClienteId": "CLI-12",
+    "ProdutoId": "ceeab8bb-3b10-4237-9e7f-674d86765c83",
+    "ValorTotal": 99.90,
+    "DataVenda": "2026-06-04T12:30:00Z",
+    "Lat": -12.9714,
+    "Lon": -38.5014,
+    "IpCliente": "179.100.22.18"
+  },
+  {
+    "ClienteId": "CLI-13",
+    "ProdutoId": "d01b1bc6-d58d-491e-a07e-945142ec052a",
+    "ValorTotal": 175.00,
+    "DataVenda": "2026-06-04T12:35:00Z",
+    "Lat": -8.0476,
+    "Lon": -34.8770,
+    "IpCliente": "45.160.20.25"
+  },
+  {
+    "ClienteId": "CLI-14",
+    "ProdutoId": "d10df8c0-8b51-4826-a0ab-7700f690b83f",
+    "ValorTotal": 220.00,
+    "DataVenda": "2026-06-04T12:40:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "189.12.44.30"
+  },
+  {
+    "ClienteId": "CLI-15",
+    "ProdutoId": "d8374e07-e4e4-42ef-8bb9-c172448e8c63",
+    "ValorTotal": 330.00,
+    "DataVenda": "2026-06-04T12:45:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "201.78.99.30"
+  },
+  {
+    "ClienteId": "CLI-16",
+    "ProdutoId": "da7e311d-e29d-4212-91be-6ea65144e582",
+    "ValorTotal": 65.00,
+    "DataVenda": "2026-06-04T12:50:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "177.185.14.22"
+  },
+  {
+    "ClienteId": "CLI-17",
+    "ProdutoId": "e37f3201-ada6-4577-9aa9-79d1dd6b68e5",
+    "ValorTotal": 180.00,
+    "DataVenda": "2026-06-04T12:55:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "190.89.23.33"
+  },
+  {
+    "ClienteId": "CLI-18",
+    "ProdutoId": "e4a139bd-be9a-4aaf-89e8-623c966056d6",
+    "ValorTotal": 290.00,
+    "DataVenda": "2026-06-04T13:00:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "45.160.20.40"
+  },
+  {
+    "ClienteId": "CLI-19",
+    "ProdutoId": "e5a43ac3-5b48-4d77-b472-56eaac0324d3",
+    "ValorTotal": 115.00,
+    "DataVenda": "2026-06-04T13:05:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "189.12.44.45"
+  },
+  {
+    "ClienteId": "CLI-20",
+    "ProdutoId": "ebad21c7-fa13-46d0-96a5-1e7446635fd6",
+    "ValorTotal": 410.00,
+    "DataVenda": "2026-06-04T13:10:00Z",
+    "Lat": -12.9714,
+    "Lon": -38.5014,
+    "IpCliente": "201.78.99.45"
+  },
+  {
+    "ClienteId": "CLI-21",
+    "ProdutoId": "f182921e-35ec-4688-8699-70c9e4366584",
+    "ValorTotal": 95.00,
+    "DataVenda": "2026-06-04T13:15:00Z",
+    "Lat": -8.0476,
+    "Lon": -34.8770,
+    "IpCliente": "177.185.16.10"
+  },
+  {
+    "ClienteId": "CLI-22",
+    "ProdutoId": "f828ebdf-8000-4e36-8715-206c4a9d9e54",
+    "ValorTotal": 230.00,
+    "DataVenda": "2026-06-04T13:20:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "190.89.23.50"
+  },
+  {
+    "ClienteId": "CLI-23",
+    "ProdutoId": "f9249c74-e99a-46a0-b72e-1c4a1fd856d3",
+    "ValorTotal": 155.00,
+    "DataVenda": "2026-06-04T13:25:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "45.160.20.55"
+  },
+  {
+    "ClienteId": "CLI-24",
+    "ProdutoId": "f9b19ccc-624e-4483-9446-6cc8358914bf",
+    "ValorTotal": 380.00,
+    "DataVenda": "2026-06-04T13:30:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "189.12.44.55"
+  },
+  {
+    "ClienteId": "CLI-25",
+    "ProdutoId": "fbaf3965-234a-4c0e-b8f2-842fdcfb9afe",
+    "ValorTotal": 275.00,
+    "DataVenda": "2026-06-04T13:35:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "201.78.99.55"
+  },
+  {
+    "ClienteId": "CLI-26",
+    "ProdutoId": "01e7920a-49d2-4fff-84ea-fa31d7101244",
+    "ValorTotal": 145.00,
+    "DataVenda": "2026-06-04T13:40:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "177.185.18.20"
+  },
+  {
+    "ClienteId": "CLI-27",
+    "ProdutoId": "0252f6ae-d5f0-4812-93d3-b8bf82bfedf8",
+    "ValorTotal": 210.00,
+    "DataVenda": "2026-06-04T13:45:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "190.89.23.60"
+  },
+  {
+    "ClienteId": "CLI-28",
+    "ProdutoId": "0ce3b458-4756-4612-b2e4-a5c8072f07c1",
+    "ValorTotal": 89.00,
+    "DataVenda": "2026-06-04T13:50:00Z",
+    "Lat": -12.9714,
+    "Lon": -38.5014,
+    "IpCliente": "45.160.20.65"
+  },
+  {
+    "ClienteId": "CLI-29",
+    "ProdutoId": "0e1cf2c4-7adc-4c4a-9003-fe49eb1ada6b",
+    "ValorTotal": 320.00,
+    "DataVenda": "2026-06-04T13:55:00Z",
+    "Lat": -8.0476,
+    "Lon": -34.8770,
+    "IpCliente": "189.12.44.65"
+  },
+  {
+    "ClienteId": "CLI-30",
+    "ProdutoId": "2916e685-e5b8-49c9-9c1b-21d1b3b864af",
+    "ValorTotal": 195.00,
+    "DataVenda": "2026-06-04T14:00:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "201.78.99.65"
+  },
+  {
+    "ClienteId": "CLI-31",
+    "ProdutoId": "2aae0e1c-ede1-4549-8742-fcbaff1a0dba",
+    "ValorTotal": 450.00,
+    "DataVenda": "2026-06-04T14:05:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "177.185.20.30"
+  },
+  {
+    "ClienteId": "CLI-32",
+    "ProdutoId": "314a47da-2c9e-422a-a3e2-463eddd69044",
+    "ValorTotal": 110.00,
+    "DataVenda": "2026-06-04T14:10:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "190.89.23.70"
+  },
+  {
+    "ClienteId": "CLI-33",
+    "ProdutoId": "3fb2306e-f89b-4bbf-9192-aefa0e08e42f",
+    "ValorTotal": 235.00,
+    "DataVenda": "2026-06-04T14:15:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "45.160.20.75"
+  },
+  {
+    "ClienteId": "CLI-34",
+    "ProdutoId": "45e9bf95-a9f7-483f-8636-2c00b286d9d1",
+    "ValorTotal": 78.00,
+    "DataVenda": "2026-06-04T14:20:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "189.12.44.75"
+  },
+  {
+    "ClienteId": "CLI-35",
+    "ProdutoId": "494d750a-4405-45aa-9332-d28f0bced3c3",
+    "ValorTotal": 290.00,
+    "DataVenda": "2026-06-04T14:25:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "201.78.99.75"
+  },
+  {
+    "ClienteId": "CLI-36",
+    "ProdutoId": "4c7affa8-052d-403d-9f25-98b79fd94c6e",
+    "ValorTotal": 135.00,
+    "DataVenda": "2026-06-04T14:30:00Z",
+    "Lat": -12.9714,
+    "Lon": -38.5014,
+    "IpCliente": "177.185.22.40"
+  },
+  {
+    "ClienteId": "CLI-37",
+    "ProdutoId": "52daec6a-4a98-4551-a2cd-02938334bb8c",
+    "ValorTotal": 310.00,
+    "DataVenda": "2026-06-04T14:35:00Z",
+    "Lat": -8.0476,
+    "Lon": -34.8770,
+    "IpCliente": "190.89.23.80"
+  },
+  {
+    "ClienteId": "CLI-38",
+    "ProdutoId": "5553699f-8bc8-4a4a-ab2f-129a62c8428f",
+    "ValorTotal": 160.00,
+    "DataVenda": "2026-06-04T14:40:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "45.160.20.85"
+  },
+  {
+    "ClienteId": "CLI-39",
+    "ProdutoId": "5ecfb750-6777-4ad3-b9de-a8690eb7cbdb",
+    "ValorTotal": 245.00,
+    "DataVenda": "2026-06-04T14:45:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "189.12.44.85"
+  },
+  {
+    "ClienteId": "CLI-40",
+    "ProdutoId": "6784bf66-5589-45c6-a93c-eb6377759bf2",
+    "ValorTotal": 115.00,
+    "DataVenda": "2026-06-04T14:50:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "201.78.99.85"
+  },
+  {
+    "ClienteId": "CLI-41",
+    "ProdutoId": "69404a70-b075-4829-b5d9-1b22e3fe631a",
+    "ValorTotal": 299.00,
+    "DataVenda": "2026-06-04T14:55:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "177.185.24.50"
+  },
+  {
+    "ClienteId": "CLI-42",
+    "ProdutoId": "6dda0a72-5829-4da1-9470-508539728f92",
+    "ValorTotal": 88.00,
+    "DataVenda": "2026-06-04T15:00:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "190.89.23.90"
+  },
+  {
+    "ClienteId": "CLI-43",
+    "ProdutoId": "731c431f-a42d-4baf-8de9-2aea1bb13802",
+    "ValorTotal": 410.00,
+    "DataVenda": "2026-06-04T15:05:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "45.160.20.95"
+  },
+  {
+    "ClienteId": "CLI-44",
+    "ProdutoId": "78963db7-4ff7-4bb1-b72f-141da3a9ccfd",
+    "ValorTotal": 150.00,
+    "DataVenda": "2026-06-04T15:10:00Z",
+    "Lat": -12.9714,
+    "Lon": -38.5014,
+    "IpCliente": "189.12.44.95"
+  },
+  {
+    "ClienteId": "CLI-45",
+    "ProdutoId": "78d18aae-5b42-4f18-b3c2-17b4323d4182",
+    "ValorTotal": 225.00,
+    "DataVenda": "2026-06-04T15:15:00Z",
+    "Lat": -8.0476,
+    "Lon": -34.8770,
+    "IpCliente": "201.78.99.95"
+  },
+  {
+    "ClienteId": "CLI-46",
+    "ProdutoId": "8838f6f4-14c3-4899-887f-817c7b9458df",
+    "ValorTotal": 190.00,
+    "DataVenda": "2026-06-04T15:20:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "177.185.26.60"
+  },
+  {
+    "ClienteId": "CLI-47",
+    "ProdutoId": "88ca129c-0abf-40fb-9129-a132265151ce",
+    "ValorTotal": 340.00,
+    "DataVenda": "2026-06-04T15:25:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "190.89.23.99"
+  },
+  {
+    "ClienteId": "CLI-48",
+    "ProdutoId": "9035224f-35fe-492a-9ba6-ac85abc0d2de",
+    "ValorTotal": 125.00,
+    "DataVenda": "2026-06-04T15:30:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "45.160.20.10"
+  },
+  {
+    "ClienteId": "CLI-49",
+    "ProdutoId": "92b88a39-4ab9-4d06-9371-8f9174d57626",
+    "ValorTotal": 280.00,
+    "DataVenda": "2026-06-04T15:35:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "189.12.44.10"
+  }
+]

@@ -1,0 +1,190 @@
+/* ========================================================================== */
+/* VARIÁVEIS DE DESIGN SYSTEM (Identidade Visual Unificada: Logo + Canva)      */
+/* ========================================================================== */
+:root {
+    /* Tons Profundos / Base (Extraídos do Canva e Fundos Escuros) */
+    --ls-bg-deep: #010103;
+    --ls-bg-dark: #050b22;
+    --ls-bg-card: #081943;
+    --ls-primary-dark: #173475;
+    --ls-primary: #1748ac;
+    /* Tons de Azul/Ciano da Logo (Destaques e Tecnologia) */
+    --ls-cyan-vibrant: #0cbbda;
+    --ls-blue-tech: #1a97be;
+    --ls-blue-ocean: #086d98;
+    --ls-blue-deep: #044678;
+    /* Status e Alertas Antifraude */
+    --ls-danger: #dc3545;
+    --ls-danger-hover: #bd2130;
+    --ls-warning: #ffc107;
+    --ls-success: #198754;
+    /* Variáveis Globais de Dark Mode (Executivo / Tech) */
+    --ls-dark-body: #0b0f19;
+    --ls-dark-card: #131b2e;
+    --ls-dark-input: #1a233a;
+    --ls-border-subtle: rgba(255, 255, 255, 0.08);
+    --ls-text-light: #f8fafc;
+    --ls-text-muted: #94a3b8;
+}
+
+/* Configurações Globais de Tipografia e Layout */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--ls-text-light) !important;
+    background-color: var(--ls-dark-body) !important;
+}
+
+/* Customização dos Focus de Acessibilidade (Foco vermelho suave do LocaSmart) */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus, .form-select:focus {
+    border-color: var(--ls-danger);
+    box-shadow: 0 0 0 0.1rem var(--ls-dark-body), 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+/* Utilitários de Texto e Design Visual */
+.tracking-wider {
+    letter-spacing: 0.08em;
+}
+
+.xsmall {
+    font-size: 0.75rem;
+}
+
+.text-warning-dark {
+    color: #ffda6a;
+}
+
+/* ========================================================================== */
+/* CLASSES UTILITÁRIAS PARA A NOVA PALETA DA MARCA                            */
+/* ========================================================================== */
+.bg-loca-dark {
+    background-color: var(--ls-bg-dark) !important;
+}
+
+.bg-loca-card {
+    background-color: var(--ls-bg-card) !important;
+}
+
+.text-cyan-vibrant {
+    color: var(--ls-cyan-vibrant) !important;
+}
+
+.border-cyan {
+    border-color: var(--ls-cyan-vibrant) !important;
+}
+
+/* ========================================================================== */
+/* ADAPTAÇÃO GLOBAL DARK MODE (Cards, Modais, Tabelas e Inputs)               */
+/* ========================================================================== */
+.card {
+    background-color: var(--ls-dark-card) !important;
+    border: 1px solid var(--ls-border-subtle) !important;
+    color: var(--ls-text-light) !important;
+}
+
+.modal-content {
+    background-color: var(--ls-dark-card) !important;
+    border: 1px solid var(--ls-border-subtle) !important;
+    color: var(--ls-text-light) !important;
+}
+
+.form-control, .form-select, .input-group-text {
+    background-color: var(--ls-dark-input) !important;
+    border-color: var(--ls-border-subtle) !important;
+    color: var(--ls-text-light) !important;
+}
+
+    .form-control:focus, .form-select:focus {
+        background-color: var(--ls-dark-input) !important;
+        color: var(--ls-text-light) !important;
+        border-color: var(--ls-primary) !important;
+    }
+
+    .form-control::placeholder, textarea::placeholder {
+        color: #64748b !important;
+        opacity: 1;
+    }
+
+.text-dark {
+    color: var(--ls-text-light) !important;
+}
+
+.text-muted {
+    color: var(--ls-text-muted) !important;
+}
+
+.table {
+    color: var(--ls-text-light) !important;
+    border-color: var(--ls-border-subtle) !important;
+}
+
+.table-light, .table-light td, .table-light th {
+    background-color: var(--ls-dark-card) !important;
+    color: var(--ls-text-light) !important;
+    border-color: var(--ls-border-subtle) !important;
+}
+
+.bg-light {
+    background-color: var(--ls-dark-input) !important;
+    color: var(--ls-text-light) !important;
+}
+
+.breadcrumb-item.active {
+    color: var(--ls-text-muted) !important;
+}
+
+.form-check-input {
+    background-color: var(--ls-dark-input);
+    border-color: var(--ls-border-subtle);
+}
+
+/* ========================================================================== */
+/* ESTILIZAÇÃO CUSTOMIZADA PARA AS ABAS DE FILTRO (NAV PILLS) DE AUDITORIA    */
+/* ========================================================================== */
+.nav-pills .nav-link {
+    color: var(--ls-text-muted);
+    border: 1px solid var(--ls-border-subtle);
+    background-color: var(--ls-dark-input);
+    transition: all 0.2s ease-in-out;
+}
+
+    .nav-pills .nav-link:hover {
+        background-color: var(--ls-dark-card);
+        color: var(--ls-text-light);
+    }
+
+    .nav-pills .nav-link.active {
+        background-color: var(--ls-danger) !important;
+        background-image: linear-gradient(180deg, var(--ls-danger), var(--ls-danger-hover));
+        border-color: var(--ls-danger);
+        color: #ffffff !important;
+        box-shadow: 0 4px 10px rgba(220, 53, 69, 0.25);
+    }
+
+#pills-normais-tab.active {
+    background-image: linear-gradient(180deg, var(--ls-success), #146c43) !important;
+    border-color: var(--ls-success);
+}
+
+#pills-suspeitas-tab.active {
+    background-image: linear-gradient(180deg, var(--ls-warning), #e0a800) !important;
+    border-color: var(--ls-warning);
+    color: #212529 !important;
+}
+
+#pills-bloqueadas-tab.active {
+    background-image: linear-gradient(180deg, var(--ls-danger), #b21f2d) !important;
+    border-color: var(--ls-danger);
+}

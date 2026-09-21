@@ -1,0 +1,84 @@
+﻿@model LocaSmart360.Models.Venda
+
+@{
+    ViewData["Title"] = "Nova Simulação de Venda";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center py-4">
+    <div class="col-md-8 col-lg-6">
+
+        <!-- Botão Voltar -->
+        <a asp-action="Index" class="text-secondary text-decoration-none small mb-3 d-inline-block fw-semibold">
+            <i class="bi bi-arrow-left me-1"></i> Voltar para a Lista
+        </a>
+
+        <div class="card border-0 shadow-lg" style="border-radius: 16px;">
+            <div class="card-body p-5">
+
+                <div class="mb-4">
+                    <h3 class="fw-bold text-dark mb-1">Simular Nova Transação</h3>
+                    <p class="text-muted small">Insira os metadados da compra para submeter as regras do motor de fraude.</p>
+                </div>
+
+                <form asp-action="Criar" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <!-- ID do Comprador -->
+                    <div class="mb-3">
+                        <label asp-for="ClienteId" class="form-label text-secondary small fw-semibold">Identificador do Cliente (CPF ou ID Interno)</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-person-badge"></i></span>
+                            <input asp-for="ClienteId" class="form-control bg-light border-start-0 ps-0" placeholder="Ex: 512399824" required />
+                        </div>
+                        <span asp-validation-for="ClienteId" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Dropdown de Produtos vindos das Tabelas de Dimensão -->
+                    <div class="mb-3">
+                        <label asp-for="ProdutoId" class="form-label text-secondary small fw-semibold">Produto Comprado</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-box-seam"></i></span>
+                            <select asp-for="ProdutoId" class="form-select bg-light border-start-0 ps-0" asp-items="ViewBag.Produtos" required>
+                                <option value="">-- Selecione o item do catálogo --</option>
+                            </select>
+                        </div>
+                        <span asp-validation-for="ProdutoId" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Valor do Pedido -->
+                    <div class="mb-4">
+                        <label asp-for="ValorTotal" class="form-label text-secondary small fw-semibold">Valor Total do Pedido (R$)</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-currency-dollar"></i></span>
+                            <input asp-for="ValorTotal" class="form-control bg-light border-start-0 ps-0" placeholder="0,00" type="number" step="0.01" min="0.01" required />
+                        </div>
+                        <span asp-validation-for="ValorTotal" class="text-danger small"></span>
+                    </div>
+
+                    <!-- Nota Explicativa -->
+                    <div class="card bg-light border-0 p-3 mb-4" style="border-radius: 8px;">
+                        <div class="d-flex">
+                            <i class="bi bi-info-circle-fill text-danger me-2 fs-5"></i>
+                            <p class="mb-0 xsmall text-secondary text-justify">
+                                Ao salvar, o sistema fará um cruzamento com o histórico de compras deste <strong>Cliente ID</strong> e validará o comportamento com o fuso horário da transação (regras críticas de madrugada).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Botão Salvar -->
+                    <button type="submit" class="btn btn-danger btn-lg w-100 fw-bold shadow-sm bg-gradient" style="border-radius: 8px; font-size: 1rem;">
+                        <i class="bi bi-shield-check me-1"></i> Analisar e Salvar Venda
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

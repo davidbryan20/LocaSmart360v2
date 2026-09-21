@@ -1,0 +1,452 @@
+[
+  {
+    "ClienteId": "CLI-50",
+    "ProdutoId": "01e7920a-49d2-4fff-84ea-fa31d7101244",
+    "ValorTotal": 4500.00,
+    "DataVenda": "2026-06-04T08:00:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "177.185.10.20"
+  },
+  {
+    "ClienteId": "CLI-50",
+    "ProdutoId": "0252f6ae-d5f0-4812-93d3-b8bf82bfedf8",
+    "ValorTotal": 12.50,
+    "DataVenda": "2026-06-04T08:15:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "177.185.10.20"
+  },
+  {
+    "ClienteId": "CLI-50",
+    "ProdutoId": "0ce3b458-4756-4612-b2e4-a5c8072f07c1",
+    "ValorTotal": 2500.00,
+    "DataVenda": "2026-06-04T22:30:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "45.160.20.55"
+  },
+  {
+    "ClienteId": "CLI-50",
+    "ProdutoId": "0e1cf2c4-7adc-4c4a-9003-fe49eb1ada6b",
+    "ValorTotal": 95.00,
+    "DataVenda": "2026-06-05T02:10:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "45.160.20.55"
+  },
+  {
+    "ClienteId": "CLI-50",
+    "ProdutoId": "2916e685-e5b8-49c9-9c1b-21d1b3b864af",
+    "ValorTotal": 310.00,
+    "DataVenda": "2026-06-05T03:00:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "45.160.20.55"
+  },
+  {
+    "ClienteId": "CLI-50",
+    "ProdutoId": "2aae0e1c-ede1-4549-8742-fcbaff1a0dba",
+    "ValorTotal": 5200.00,
+    "DataVenda": "2026-06-05T12:00:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "177.185.10.20"
+  },
+  {
+    "ClienteId": "CLI-50",
+    "ProdutoId": "314a47da-2c9e-422a-a3e2-463eddd69044",
+    "ValorTotal": 14.00,
+    "DataVenda": "2026-06-05T12:05:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "177.185.10.20"
+  },
+  {
+    "ClienteId": "CLI-50",
+    "ProdutoId": "3fb2306e-f89b-4bbf-9192-aefa0e08e42f",
+    "ValorTotal": 450.00,
+    "DataVenda": "2026-06-05T14:00:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "177.185.10.20"
+  },
+  {
+    "ClienteId": "CLI-50",
+    "ProdutoId": "45e9bf95-a9f7-483f-8636-2c00b286d9d1",
+    "ValorTotal": 1200.00,
+    "DataVenda": "2026-06-05T18:00:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "189.12.44.88"
+  },
+  {
+    "ClienteId": "CLI-50",
+    "ProdutoId": "494d750a-4405-45aa-9332-d28f0bced3c3",
+    "ValorTotal": 8.50,
+    "DataVenda": "2026-06-05T23:50:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "189.12.44.88"
+  },
+  {
+    "ClienteId": "CLI-51",
+    "ProdutoId": "4c7affa8-052d-403d-9f25-98b79fd94c6e",
+    "ValorTotal": 3500.00,
+    "DataVenda": "2026-06-04T09:00:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "201.78.99.10"
+  },
+  {
+    "ClienteId": "CLI-51",
+    "ProdutoId": "52daec6a-4a98-4551-a2cd-02938334bb8c",
+    "ValorTotal": 9.90,
+    "DataVenda": "2026-06-04T09:05:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "201.78.99.10"
+  },
+  {
+    "ClienteId": "CLI-51",
+    "ProdutoId": "5553699f-8bc8-4a4a-ab2f-129a62c8428f",
+    "ValorTotal": 180.00,
+    "DataVenda": "2026-06-04T10:00:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "201.78.99.10"
+  },
+  {
+    "ClienteId": "CLI-51",
+    "ProdutoId": "5ecfb750-6777-4ad3-b9de-a8690eb7cbdb",
+    "ValorTotal": 1500.00,
+    "DataVenda": "2026-06-04T12:00:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "190.89.23.15"
+  },
+  {
+    "ClienteId": "CLI-51",
+    "ProdutoId": "6784bf66-5589-45c6-a93c-eb6377759bf2",
+    "ValorTotal": 11.00,
+    "DataVenda": "2026-06-04T12:02:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "190.89.23.15"
+  },
+  {
+    "ClienteId": "CLI-51",
+    "ProdutoId": "69404a70-b075-4829-b5d9-1b22e3fe631a",
+    "ValorTotal": 4800.00,
+    "DataVenda": "2026-06-04T15:30:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "201.78.99.10"
+  },
+  {
+    "ClienteId": "CLI-51",
+    "ProdutoId": "6dda0a72-5829-4da1-9470-508539728f92",
+    "ValorTotal": 5.00,
+    "DataVenda": "2026-06-04T23:15:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "201.78.99.10"
+  },
+  {
+    "ClienteId": "CLI-51",
+    "ProdutoId": "731c431f-a42d-4baf-8de9-2aea1bb13802",
+    "ValorTotal": 290.00,
+    "DataVenda": "2026-06-05T01:00:00Z",
+    "Lat": -12.9714,
+    "Lon": -38.5014,
+    "IpCliente": "179.100.22.44"
+  },
+  {
+    "ClienteId": "CLI-51",
+    "ProdutoId": "78963db7-4ff7-4bb1-b72f-141da3a9ccfd",
+    "ValorTotal": 650.00,
+    "DataVenda": "2026-06-05T02:30:00Z",
+    "Lat": -12.9714,
+    "Lon": -38.5014,
+    "IpCliente": "179.100.22.44"
+  },
+  {
+    "ClienteId": "CLI-51",
+    "ProdutoId": "78d18aae-5b42-4f18-b3c2-17b4323d4182",
+    "ValorTotal": 2100.00,
+    "DataVenda": "2026-06-05T10:00:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "201.78.99.10"
+  },
+  {
+    "ClienteId": "CLI-52",
+    "ProdutoId": "8838f6f4-14c3-4899-887f-817c7b9458df",
+    "ValorTotal": 14.50,
+    "DataVenda": "2026-06-04T03:00:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "45.160.20.10"
+  },
+  {
+    "ClienteId": "CLI-52",
+    "ProdutoId": "88ca129c-0abf-40fb-9129-a132265151ce",
+    "ValorTotal": 4100.00,
+    "DataVenda": "2026-06-04T03:05:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "45.160.20.10"
+  },
+  {
+    "ClienteId": "CLI-52",
+    "ProdutoId": "9035224f-35fe-492a-9ba6-ac85abc0d2de",
+    "ValorTotal": 99.00,
+    "DataVenda": "2026-06-04T04:00:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "45.160.20.10"
+  },
+  {
+    "ClienteId": "CLI-52",
+    "ProdutoId": "92b88a39-4ab9-4d06-9371-8f9174d57626",
+    "ValorTotal": 12.00,
+    "DataVenda": "2026-06-04T04:15:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "177.185.99.88"
+  },
+  {
+    "ClienteId": "CLI-52",
+    "ProdutoId": "942abbd6-f17c-43aa-bf47-28b691cebf07",
+    "ValorTotal": 3400.00,
+    "DataVenda": "2026-06-04T14:00:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "177.185.99.88"
+  },
+  {
+    "ClienteId": "CLI-52",
+    "ProdutoId": "9b0f81eb-99c8-448f-8132-4a719d0a8b41",
+    "ValorTotal": 10.00,
+    "DataVenda": "2026-06-04T22:00:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "177.185.99.88"
+  },
+  {
+    "ClienteId": "CLI-52",
+    "ProdutoId": "ab16cae4-3ce2-40b1-89a1-f6084bcdf6b6",
+    "ValorTotal": 2900.00,
+    "DataVenda": "2026-06-05T09:00:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "45.160.20.10"
+  },
+  {
+    "ClienteId": "CLI-52",
+    "ProdutoId": "af0f4143-218c-41f3-93a1-83ad386afb38",
+    "ValorTotal": 13.50,
+    "DataVenda": "2026-06-05T09:10:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "45.160.20.10"
+  },
+  {
+    "ClienteId": "CLI-52",
+    "ProdutoId": "af160111-806d-4dc4-a737-4cbd5c450773",
+    "ValorTotal": 450.00,
+    "DataVenda": "2026-06-05T11:00:00Z",
+    "Lat": -19.9167,
+    "Lon": -43.9345,
+    "IpCliente": "45.160.20.10"
+  },
+  {
+    "ClienteId": "CLI-52",
+    "ProdutoId": "af8f34bd-ccc9-484e-b23a-a767adadad17",
+    "ValorTotal": 3800.00,
+    "DataVenda": "2026-06-05T16:00:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "189.12.44.20"
+  },
+  {
+    "ClienteId": "CLI-53",
+    "ProdutoId": "b44fcf01-e8e9-4dd5-b6e5-1b694dad912b",
+    "ValorTotal": 11.50,
+    "DataVenda": "2026-06-04T01:30:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "190.89.23.50"
+  },
+  {
+    "ClienteId": "CLI-53",
+    "ProdutoId": "b775f1fe-8486-424e-aaf3-25d01f8f69c4",
+    "ValorTotal": 3100.00,
+    "DataVenda": "2026-06-04T01:35:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "190.89.23.50"
+  },
+  {
+    "ClienteId": "CLI-53",
+    "ProdutoId": "b84e8199-776c-41f6-b714-e7f9921dcd35",
+    "ValorTotal": 120.00,
+    "DataVenda": "2026-06-04T02:00:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "190.89.23.50"
+  },
+  {
+    "ClienteId": "CLI-53",
+    "ProdutoId": "c55cfa6a-dc77-4e79-b55e-816b55858297",
+    "ValorTotal": 14.90,
+    "DataVenda": "2026-06-04T02:10:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "201.78.99.88"
+  },
+  {
+    "ClienteId": "CLI-53",
+    "ProdutoId": "c8d6dd8a-83b7-402a-bdea-e46609d906e8",
+    "ValorTotal": 4500.00,
+    "DataVenda": "2026-06-04T15:00:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "201.78.99.88"
+  },
+  {
+    "ClienteId": "CLI-53",
+    "ProdutoId": "cbded3d9-275a-4bd8-a709-e363e17e5b2c",
+    "ValorTotal": 8.00,
+    "DataVenda": "2026-06-04T21:30:00Z",
+    "Lat": -22.9068,
+    "Lon": -43.1729,
+    "IpCliente": "201.78.99.88"
+  },
+  {
+    "ClienteId": "CLI-53",
+    "ProdutoId": "ceeab8bb-3b10-4237-9e7f-674d86765c83",
+    "ValorTotal": 2900.00,
+    "DataVenda": "2026-06-05T08:00:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "190.89.23.50"
+  },
+  {
+    "ClienteId": "CLI-53",
+    "ProdutoId": "d01b1bc6-d58d-491e-a07e-945142ec052a",
+    "ValorTotal": 13.00,
+    "DataVenda": "2026-06-05T08:05:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "190.89.23.50"
+  },
+  {
+    "ClienteId": "CLI-53",
+    "ProdutoId": "d10df8c0-8b51-4826-a0ab-7700f690b83f",
+    "ValorTotal": 550.00,
+    "DataVenda": "2026-06-05T10:00:00Z",
+    "Lat": -15.7975,
+    "Lon": -47.8919,
+    "IpCliente": "190.89.23.50"
+  },
+  {
+    "ClienteId": "CLI-53",
+    "ProdutoId": "d8374e07-e4e4-42ef-8bb9-c172448e8c63",
+    "ValorTotal": 3900.00,
+    "DataVenda": "2026-06-05T17:00:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "177.185.44.11"
+  },
+  {
+    "ClienteId": "CLI-54",
+    "ProdutoId": "da7e311d-e29d-4212-91be-6ea65144e582",
+    "ValorTotal": 14.00,
+    "DataVenda": "2026-06-04T04:00:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "177.185.12.33"
+  },
+  {
+    "ClienteId": "CLI-54",
+    "ProdutoId": "e37f3201-ada6-4577-9aa9-79d1dd6b68e5",
+    "ValorTotal": 3800.00,
+    "DataVenda": "2026-06-04T04:05:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "177.185.12.33"
+  },
+  {
+    "ClienteId": "CLI-54",
+    "ProdutoId": "e4a139bd-be9a-4aaf-89e8-623c966056d6",
+    "ValorTotal": 140.00,
+    "DataVenda": "2026-06-04T05:00:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "177.185.12.33"
+  },
+  {
+    "ClienteId": "CLI-54",
+    "ProdutoId": "e5a43ac3-5b48-4d77-b472-56eaac0324d3",
+    "ValorTotal": 9.50,
+    "DataVenda": "2026-06-04T05:10:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "189.12.44.99"
+  },
+  {
+    "ClienteId": "CLI-54",
+    "ProdutoId": "ebad21c7-fa13-46d0-96a5-1e7446635fd6",
+    "ValorTotal": 4200.00,
+    "DataVenda": "2026-06-04T16:00:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "189.12.44.99"
+  },
+  {
+    "ClienteId": "CLI-54",
+    "ProdutoId": "f182921e-35ec-4688-8699-70c9e4366584",
+    "ValorTotal": 7.50,
+    "DataVenda": "2026-06-04T23:45:00Z",
+    "Lat": -23.5505,
+    "Lon": -46.6333,
+    "IpCliente": "189.12.44.99"
+  },
+  {
+    "ClienteId": "CLI-54",
+    "ProdutoId": "f828ebdf-8000-4e36-8715-206c4a9d9e54",
+    "ValorTotal": 2700.00,
+    "DataVenda": "2026-06-05T09:30:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "177.185.12.33"
+  },
+  {
+    "ClienteId": "CLI-54",
+    "ProdutoId": "f9249c74-e99a-46a0-b72e-1c4a1fd856d3",
+    "ValorTotal": 11.00,
+    "DataVenda": "2026-06-05T09:35:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "177.185.12.33"
+  },
+  {
+    "ClienteId": "CLI-54",
+    "ProdutoId": "f9b19ccc-624e-4483-9446-6cc8358914bf",
+    "ValorTotal": 310.00,
+    "DataVenda": "2026-06-05T11:00:00Z",
+    "Lat": -25.4284,
+    "Lon": -49.2733,
+    "IpCliente": "177.185.12.33"
+  },
+  {
+    "ClienteId": "CLI-54",
+    "ProdutoId": "fbaf3965-234a-4c0e-b8f2-842fdcfb9afe",
+    "ValorTotal": 3500.00,
+    "DataVenda": "2026-06-05T18:00:00Z",
+    "Lat": -30.0346,
+    "Lon": -51.2177,
+    "IpCliente": "201.78.99.77"
+  }
+]

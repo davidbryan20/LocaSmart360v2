@@ -1,0 +1,75 @@
+﻿@model LocaSmart360.Models.Usuario
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Entrar - LocaSmart 360";
+}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 75vh;">
+    <div class="card shadow-lg p-4 bg-white" style="width: 100%; max-width: 420px; border-radius: 12px; border-top: 5px solid var(--ls-primary);">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold" style="color: var(--ls-primary);">LocaSmart 360</h2>
+            <p class="text-muted small">Acesse o Ecossistema do Lojista — Locaweb</p>
+
+            <div class="mt-2">
+                @if (ViewBag.SistemaOnline != null && (bool)ViewBag.SistemaOnline)
+                {
+                    <span class="badge bg-success bg-gradient px-2 py-1 small">
+                        <i class="bi bi-cloud-check-fill me-1"></i> Supabase: Online
+                    </span>
+                }
+                else
+                {
+                    <span class="badge bg-warning text-dark bg-gradient px-2 py-1 small">
+                        <i class="bi bi-hdd-network-fill me-1"></i> Fallback Ativo (Offline)
+                    </span>
+                }
+            </div>
+        </div>
+
+        @if (TempData["SucessoCadastro"] != null)
+        {
+            <div class="alert alert-success text-center small py-2 shadow-sm" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i> @TempData["SucessoCadastro"]
+            </div>
+        }
+
+        @if (ViewBag.Erro != null)
+        {
+            <div class="alert alert-danger text-center small py-2 shadow-sm" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i> @ViewBag.Erro
+            </div>
+        }
+
+        <form asp-controller="Autenticacao" asp-action="Login" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group mb-3">
+                <label for="email" class="form-label small fw-semibold text-secondary">E-mail Corporativo</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="seuemail@exemplo.com" required autofocus />
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="senha" class="form-label small fw-semibold text-secondary">Senha</label>
+                <input type="password" id="senha" name="senha" class="form-control" placeholder="••••••••" required />
+            </div>
+
+            <div class="d-grid gap-2 mb-3">
+                <button type="submit" class="btn btn-lg fw-semibold text-white shadow-sm" style="background-color: var(--ls-primary); border-radius: 8px;">
+                    <i class="bi bi-box-arrow-in-right me-1"></i> Entrar no Painel
+                </button>
+            </div>
+        </form>
+
+        <hr class="text-muted my-3">
+
+        <div class="text-center">
+            <p class="text-muted small mb-0">
+                Não tem uma conta?
+                <a asp-controller="Autenticacao" asp-action="Cadastro" class="text-decoration-none fw-bold" style="color: var(--ls-primary);">
+                    Cadastre-se aqui
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

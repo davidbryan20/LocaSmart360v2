@@ -1,0 +1,138 @@
+﻿@model IEnumerable<LocaSmart360.Models.Venda>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Monitoramento de Vendas";
+    Layout = "_Layout";
+
+    // Resgata o nome da loja que salvamos na Session na hora do Login
+    var nomeLoja = HttpContextAccessor.HttpContext?.Session.GetString("NomeLoja") ?? "Minha Loja Virtual";
+}
+
+<div class="container-fluid py-4">
+    <!-- Cabeçalho Dinâmico -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <span class="text-uppercase text-danger fw-bold tracking-wider small">Painel de Controle</span>
+            <h2 class="fw-bold text-dark m-0">@nomeLoja</h2>
+        </div>
+        <a asp-action="Criar" class="btn btn-danger bg-gradient fw-bold px-4 py-2 shadow-sm" style="border-radius: 8px;">
+            <i class="bi bi-plus-lg me-2"></i> Nova Simulação
+        </a>
+    </div>
+
+    <!-- Cards de KPIs Rápidos -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3" style="border-radius: 12px;">
+                <div class="d-flex align-items-center">
+                    <div class="badge bg-danger bg-opacity-10 p-3 text-danger me-3" style="border-radius: 8px;">
+                        <i class="bi bi-cart-check-fill fs-4"></i>
+                    </div>
+                    <div>
+                        <p class="text-muted small mb-1">Total Analisado</p>
+                        <h4 class="fw-bold mb-0">@Model.Count() Pedidos</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3" style="border-radius: 12px;">
+                <div class="d-flex align-items-center">
+                    <div class="badge bg-warning bg-opacity-10 p-3 text-warning me-3" style="border-radius: 8px;">
+                        <i class="bi bi-shield-fill-exclamation fs-4"></i>
+                    </div>
+                    <div>
+                        <p class="text-muted small mb-1">Risco Crítico (>50%)</p>
+                        <h4 class="fw-bold mb-0 text-warning">@Model.Count(v => v.ScoreRiscoFraude > 50) Alertas</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3" style="border-radius: 12px;">
+                <div class="d-flex align-items-center">
+                    <div class="badge bg-success bg-opacity-10 p-3 text-success me-3" style="border-radius: 8px;">
+                        <i class="bi bi-cash-coin fs-4"></i>
+                    </div>
+                    <div>
+                        <p class="text-muted small mb-1">Volume Auditado</p>
+                        <h4 class="fw-bold mb-0 text-success">@Model.Sum(v => v.ValorTotal).ToString("C")</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabela Fato de Vendas vinda do Supabase -->
+    <div class="card border-0 shadow-sm" style="border-radius: 16px;">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-light text-secondary small fw-bold">
+                        <tr>
+                            <th class="ps-4 py-3">DATA/HORA</th>
+                            <th class="py-3">ID COMPRADOR</th>
+                            <th class="py-3">PRODUTO INTEGRADO</th>
+                            <th class="py-3">VALOR TOTAL</th>
+                            <th class="py-3 text-center">SCORE DE RISCO</th>
+                            <th class="pe-4 py-3 text-end">STATUS SUGERIDO</th>
+                        </tr>
+                    </thead>
+                    <tbody class="border-top-0 small">
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center py-5 text-muted">
+                                    <i class="bi bi-inbox fs-2 d-block mb-2"></i>
+                                    Nenhuma transação integrada ou registrada para análise.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var venda in Model)
+                            {
+                                string badgeClasse = "bg-success";
+                                string statusSugerido = "Aprovação Segura";
+
+                                if (venda.ScoreRiscoFraude > 60)
+                                {
+                                    badgeClasse = "bg-danger";
+                                    statusSugerido = "Bloqueio Recomendado";
+                                }
+                                else if (venda.ScoreRiscoFraude > 25)
+                                {
+                                    badgeClasse = "bg-warning text-dark";
+                                    statusSugerido = "Revisão Manual";
+                                }
+
+                                <tr>
+                                    <td class="ps-4">@venda.DataVenda.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td class="fw-semibold text-secondary">#@venda.ClienteId</td>
+                                    <td>
+                                        <div class="fw-bold text-dark">@(venda.Produto?.Nome ?? "Produto Removido")</div>
+                                        <div class="text-muted xsmall">SKU: @(venda.Produto?.Sku ?? "-")</div>
+                                    </td>
+                                    <td class="fw-bold text-dark">@venda.ValorTotal.ToString("C")</td>
+                                    <td class="text-center">
+                                        <div class="progress m-auto" style="height: 8px; width: 100px; border-radius: 4px;">
+                                            <div class="progress-bar @badgeClasse" role="progressbar" style="width: @venda.ScoreRiscoFraude%"></div>
+                                        </div>
+                                        <span class="fw-bold small mt-1 d-block">@venda.ScoreRiscoFraude%</span>
+                                    </td>
+                                    <td class="pe-4 text-end">
+                                        <span class="badge @badgeClasse bg-gradient px-3 py-2" style="border-radius: 6px;">
+                                            @statusSugerido
+                                        </span>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

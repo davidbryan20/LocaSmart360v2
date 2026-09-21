@@ -1,0 +1,110 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LocaSmart360</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LocaSmart360.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-loca-dark text-light d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-loca-dark border-bottom border-secondary border-opacity-25 shadow-sm mb-4">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand fw-bold text-white" asp-area="" asp-controller="Home" asp-action="Index">
+                    LocaSmart <span class="text-primary">360</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 align-items-center">
+                        @if (HttpContextAccessor.HttpContext?.Session.GetString("UsuarioId") != null)
+                        {
+                            <!-- Menus visíveis apenas para usuários autenticados -->
+                            <li class="nav-item">
+                                <a class="nav-link text-light fw-semibold px-3" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <i class="bi bi-speedometer2 me-1"></i> Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light fw-semibold px-3" asp-area="" asp-controller="Vendas" asp-action="Index">
+                                    <i class="bi bi-speedometer2 me-1"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light fw-semibold px-3" asp-area="" asp-controller="Vendas" asp-action="Auditoria">
+                                    <i class="bi bi-shield-shaded me-1 text-primary"></i> Central de Risco
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light fw-semibold px-3" asp-area="" asp-controller="Produtos" asp-action="Index">
+                                    <i class="bi bi-box-seam me-1 text-primary"></i> Produtos
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light fw-semibold px-3" asp-area="" asp-controller="Vendas" asp-action="Integracao">
+                                    <i class="bi bi-cpu-fill me-1 text-secondary"></i> Carga ETL
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light fw-semibold px-3" asp-area="" asp-controller="Home" asp-action="Sobre">
+                                    <i class="bi bi-info-circle me-1 text-cyan-vibrant"></i> Sobre o Projeto
+                                </a>
+                            </li>
+
+                            <!-- Botão de Logout e Loja alinhados à direita -->
+                            <li class="nav-item ms-sm-auto">
+                                <div class="d-flex align-items-center">
+                                    <span class="badge bg-dark border border-secondary text-light me-3 py-2 px-3 shadow-sm"><i class="bi bi-shop me-1"></i> @HttpContextAccessor.HttpContext.Session.GetString("NomeLoja")</span>
+                                    <a class="btn btn-outline-light btn-sm fw-bold px-3" asp-area="" asp-controller="Autenticacao" asp-action="Logout" style="border-radius: 6px;">
+                                        <i class="bi bi-box-arrow-right me-1"></i> Sair
+                                    </a>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <!-- Se não estiver logado -->
+                            <li class="nav-item">
+                                <a class="nav-link text-light fw-semibold px-3" asp-area="" asp-controller="Home" asp-action="Sobre">
+                                    <i class="bi bi-info-circle me-1 text-cyan-vibrant"></i> Sobre o Projeto
+                                </a>
+                            </li>
+                            <li class="nav-item ms-sm-auto">
+                                <span class="text-muted small fw-semibold"><i class="bi bi-shield-lock-fill text-primary me-1"></i> Ambiente Seguro LGPD</span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Container alinhado com padding consistente (container-fluid px-4) -->
+    <div class="container-fluid px-4 flex-grow-1">
+        <main role="main" class="pb-5">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Rodapé corrigido com alinhamento perfeito -->
+    <footer class="border-top border-secondary border-opacity-25 footer text-muted bg-loca-dark shadow-sm py-3 mt-auto">
+        <div class="container-fluid px-4 d-flex justify-content-between align-items-center text-light">
+            <span>&copy; 2026 - <strong>LocaSmart360</strong> - Monitoramento Inteligente Anti-Fraude</span>
+            <span class="small text-muted d-none d-sm-inline">Ambiente Seguro &amp; Conforme LGPD</span>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

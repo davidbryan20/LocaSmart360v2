@@ -1,0 +1,177 @@
+﻿@model IEnumerable<LocaSmart360.Models.Produto>
+
+@{
+    ViewData["Title"] = "Gerenciamento de Produtos";
+    Layout = "_Layout";
+}
+
+<div class="container-fluid py-4">
+    @if (TempData["Sucesso"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i> @TempData["Sucesso"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i> @TempData["Erro"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold text-dark mb-1"><i class="bi bi-box-seam me-2" style="color: var(--ls-primary);"></i>Catálogo de Produtos</h2>
+            <p class="text-muted small mb-0">Gerencie os produtos cadastrados no sistema para validação do ETL e antifraude.</p>
+        </div>
+        <button type="button" class="btn fw-semibold px-3 shadow-sm text-white" style="background-color: var(--ls-primary);" data-bs-toggle="modal" data-bs-target="#modalProduto" onclick="abrirModalCriar()">
+            <i class="bi bi-plus-lg me-1"></i> Novo Produto
+        </button>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-dark text-uppercase small tracking-wider">
+                        <tr>
+                            <th class="py-3 ps-4">Código SKU</th>
+                            <th class="py-3">Nome do Produto</th>
+                            <th class="py-3">Categoria</th>
+                            <th class="py-3">SEO / Palavras-Chave</th>
+                            <th class="py-3 text-end pe-4">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            @foreach (var produto in Model)
+                            {
+                                <tr>
+                                    <td class="ps-4 fw-mono text-muted small"><span class="badge bg-light text-dark border">@produto.Sku</span></td>
+                                    <td class="fw-semibold text-dark">@produto.Nome</td>
+                                    <td><span class="badge bg-secondary bg-opacity-10 text-secondary">@produto.Categoria</span></td>
+                                    <td class="text-muted small text-truncate" style="max-width: 200px;">@produto.PalavrasChaveSEO</td>
+                                    <td class="text-end pe-4">
+                                        <button class="btn btn-outline-warning btn-sm me-1"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalProduto"
+                                                onclick="abrirModalEditar('@produto.ProdutoId', '@produto.Sku', '@produto.Nome', '@produto.Categoria', '@produto.PalavrasChaveSEO')">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                        <button class="btn btn-outline-danger btn-sm"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#modalRemover"
+                                                onclick="abrirModalRemover('@produto.ProdutoId', '@produto.Nome')">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center py-4 text-muted">Nenhum produto cadastrado no momento.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL: CRIAR / EDITAR PRODUTO -->
+<div class="modal fade" id="modalProduto" tabindex="-1" aria-labelledby="modalProdutoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow rounded-4">
+            <form id="formProduto" asp-action="Salvar" method="post">
+                @Html.AntiForgeryToken()
+                <div class="modal-header bg-light border-0 px-4 pt-4">
+                    <h5 class="modal-title fw-bold text-dark" id="modalProdutoLabel">Novo Produto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 py-3">
+                    <input type="hidden" id="ProdutoId" name="ProdutoId" />
+
+                    <div class="mb-3">
+                        <label for="Sku" class="form-label small fw-semibold text-muted">Código SKU</label>
+                        <input type="text" class="form-control" id="Sku" name="Sku" required maxlength="50" placeholder="Ex: SKU-99201" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Nome" class="form-label small fw-semibold text-muted">Nome do Produto</label>
+                        <input type="text" class="form-control" id="Nome" name="Nome" required maxlength="255" placeholder="Ex: Smartphone XYZ" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Categoria" class="form-label small fw-semibold text-muted">Categoria do Item</label>
+                        <input type="text" class="form-control" id="Categoria" name="Categoria" maxlength="100" placeholder="Ex: Eletrônicos" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="PalavrasChaveSEO" class="form-label small fw-semibold text-muted">Palavras-Chave Otimizadas para SEO</label>
+                        <textarea class="form-control" id="PalavrasChaveSEO" name="PalavrasChaveSEO" rows="2" placeholder="Ex: celular, smartphone, android, barato"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 px-4 pb-4">
+                    <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn px-4 fw-semibold text-white" style="background-color: var(--ls-primary);" id="btnSalvar">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL: CONFIRMAR REMOÇÃO -->
+<div class="modal fade" id="modalRemover" tabindex="-1" aria-labelledby="modalRemoverLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow rounded-4">
+            <form asp-action="Excluir" method="post">
+                @Html.AntiForgeryToken()
+                <div class="modal-header bg-light border-0 px-4 pt-4">
+                    <h5 class="modal-title fw-bold text-danger" id="modalRemoverLabel"><i class="bi bi-exclamation-triangle-fill me-2"></i>Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 py-3">
+                    <input type="hidden" id="RemoverProdutoId" name="id" />
+                    <p class="text-secondary mb-0">Tem certeza que deseja remover o produto <strong id="nomeProdutoRemover" class="text-dark"></strong> do sistema?</p>
+                </div>
+                <div class="modal-footer border-0 px-4 pb-4">
+                    <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger px-4 fw-semibold">Sim, Remover</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function abrirModalCriar() {
+            document.getElementById('modalProdutoLabel').innerText = 'Novo Produto';
+            document.getElementById('ProdutoId').value = '';
+            document.getElementById('Sku').value = '';
+            document.getElementById('Nome').value = '';
+            document.getElementById('Categoria').value = 'Geral';
+            document.getElementById('PalavrasChaveSEO').value = '';
+        }
+
+        function abrirModalEditar(id, sku, nome, categoria, palavrasChave) {
+            document.getElementById('modalProdutoLabel').innerText = 'Editar Produto';
+            document.getElementById('ProdutoId').value = id;
+            document.getElementById('Sku').value = sku;
+            document.getElementById('Nome').value = nome;
+            document.getElementById('Categoria').value = categoria;
+            document.getElementById('PalavrasChaveSEO').value = palavrasChave;
+        }
+
+        function abrirModalRemover(id, nome) {
+            document.getElementById('RemoverProdutoId').value = id;
+            document.getElementById('nomeProdutoRemover').innerText = nome;
+        }
+    </script>
+}

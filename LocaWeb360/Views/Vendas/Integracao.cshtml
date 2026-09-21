@@ -1,0 +1,174 @@
+﻿@{
+    ViewData["Title"] = "Pipeline ETL Sandbox";
+}
+
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Cabeçalho da Seção -->
+            <div class="mb-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-1">
+                        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Pipeline ETL</li>
+                    </ol>
+                </nav>
+                <h2 class="fw-bold text-dark"><i class="bi bi-cpu-fill text-primary me-2"></i> Sandbox de Ingestão & Data Lake</h2>
+                <p class="text-muted small">Simule o fluxo de engenharia processando lotes em massa (JSON) diretamente para o banco analítico e camadas de persistência.</p>
+            </div>
+
+            <!-- Alertas de Feedback -->
+            @if (TempData["Sucesso"] != null)
+            {
+                <div class="alert alert-success border-0 shadow-sm rounded-3 d-flex align-items-center mb-4" role="alert">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <div>@TempData["Sucesso"]</div>
+                </div>
+            }
+            @if (TempData["Erro"] != null)
+            {
+                <div class="alert alert-danger border-0 shadow-sm rounded-3 d-flex align-items-center mb-4" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill text-danger fs-5 me-2"></i>
+                    <div>@TempData["Erro"]</div>
+                </div>
+            }
+            @if (TempData["SucessoETL"] != null)
+            {
+                <div class="alert alert-success border-0 shadow-sm rounded-3 d-flex align-items-center mb-4" role="alert">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-2"></i>
+                    <div>@TempData["SucessoETL"]</div>
+                </div>
+            }
+            @if (TempData["ErroETL"] != null)
+            {
+                <div class="alert alert-danger border-0 shadow-sm rounded-3 d-flex align-items-center mb-4" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill text-danger fs-5 me-2"></i>
+                    <div>@TempData["ErroETL"]</div>
+                </div>
+            }
+
+            <!-- Formulário Principal -->
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
+                <div class="card-header bg-dark text-white py-3 px-4">
+                    <h5 class="mb-0 fw-semibold fs-6"><i class="bi bi-terminal text-primary me-2"></i> Configuração do Pipeline de Carga</h5>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-controller="Vendas" asp-action="ProcessarETL" method="post" enctype="multipart/form-data" id="formEtl">
+                        @Html.AntiForgeryToken()
+
+                        <!-- Nome do Arquivo no Data Lake -->
+                        <div class="mb-4">
+                            <label for="nomeArquivoCustomizado" class="form-label small fw-bold text-muted text-uppercase tracking-wider">Identificador no Data Lake (Raw)</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light text-muted font-monospace">/raw/</span>
+                                <input type="text" class="form-control" id="nomeArquivoCustomizado" name="nomeArquivoCustomizado" placeholder="Ex: carga_transacoes_batch_01" required />
+                                <span class="input-group-text bg-light text-muted font-monospace">.json</span>
+                            </div>
+                            <small class="form-text text-muted">Nome do arquivo que será persistido no repositório de dados brutos.</small>
+                        </div>
+
+                        <!-- Seletor de Método de Entrada -->
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-muted text-uppercase tracking-wider">Método de Ingestão de Dados</label>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-check border rounded-3 p-3 h-100 bg-light bg-opacity-50">
+                                        <input class="form-check-input mt-1" type="radio" name="tipoEntrada" id="tipoArquivo" value="arquivo" checked>
+                                        <label class="form-check-label d-block fw-semibold text-dark ms-2" for="tipoArquivo">
+                                            <i class="bi bi-file-earmark-arrow-up text-primary me-1"></i> Upload de Arquivo .JSON
+                                            <span class="d-block text-muted small fw-normal mt-1">Envie um arquivo estruturado diretamente do seu computador.</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check border rounded-3 p-3 h-100 bg-light bg-opacity-50">
+                                        <input class="form-check-input mt-1" type="radio" name="tipoEntrada" id="tipoTexto" value="texto">
+                                        <label class="form-check-label d-block fw-semibold text-dark ms-2" for="tipoTexto">
+                                            <i class="bi bi-code-square text-primary me-1"></i> Colar Payload JSON (Bruto)
+                                            <span class="d-block text-muted small fw-normal mt-1">Insira lotes transacionais copiados de webhooks ou APIs.</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloco Upload de Arquivo -->
+                        <div class="mb-4" id="blocoArquivo">
+                            <label for="arquivoJson" class="form-label small fw-bold text-muted text-uppercase tracking-wider">Selecione o Arquivo JSON</label>
+                            <input type="file" class="form-control py-2" id="arquivoJson" name="arquivoJson" accept=".json" />
+                        </div>
+
+                        <!-- Bloco Textarea Payload -->
+                        <div class="mb-4 d-none" id="blocoTexto">
+                            <label for="jsonDados" class="form-label small fw-bold text-muted text-uppercase tracking-wider">Payload Bruto (JSON)</label>
+                            <textarea name="jsonDados" id="jsonDados" class="form-control font-monospace xsmall bg-light" rows="10" placeholder='[&#10;  {&#10;    "transacaoId": "guid",&#10;    "valor": 150.00&#10;  }&#10;]'></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 fw-bold py-3 shadow-sm rounded-3">
+                            <i class="bi bi-cloud-arrow-up-fill me-2"></i> Executar Pipeline & Sincronizar com Supabase
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Carregamento Institucional / Bloqueante -->
+<div class="modal fade" id="modalCarregamento" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4 p-4 text-center">
+            <div class="modal-body py-4">
+                <div class="spinner-border text-primary mb-3" style="width: 3.5rem; height: 3.5rem;" role="status"></div>
+                <h4 class="fw-bold text-dark mb-2">Processando Pipeline ETL...</h4>
+                <p class="text-muted small mb-4">Higienizando registros, calculando heurísticas antifraude e persistindo dados em lote.</p>
+                <div class="progress mb-3" style="height: 8px; border-radius: 4px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 100%;"></div>
+                </div>
+                <span class="text-secondary small fw-semibold">Por favor, não feche a janela do navegador.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const radioArquivo = document.getElementById("tipoArquivo");
+            const radioTexto = document.getElementById("tipoTexto");
+            const blocoArquivo = document.getElementById("blocoArquivo");
+            const blocoTexto = document.getElementById("blocoTexto");
+            const inputArquivo = document.getElementById("arquivoJson");
+            const textareaJson = document.getElementById("jsonDados");
+            const formEtl = document.getElementById("formEtl");
+
+            function alternarCampos() {
+                if (radioArquivo.checked) {
+                    blocoArquivo.classList.remove("d-none");
+                    blocoTexto.classList.add("d-none");
+                    inputArquivo.setAttribute("required", "required");
+                    textareaJson.removeAttribute("required");
+                } else {
+                    blocoArquivo.classList.add("d-none");
+                    blocoTexto.classList.remove("d-none");
+                    inputArquivo.removeAttribute("required");
+                    textareaJson.setAttribute("required", "required");
+                }
+            }
+
+            radioArquivo.addEventListener("change", alternarCampos);
+            radioTexto.addEventListener("change", alternarCampos);
+
+            // Aciona o modal bloqueante ao submeter com sucesso as validações do form
+            if (formEtl) {
+                formEtl.addEventListener("submit", function (e) {
+                    if (formEtl.checkValidity()) {
+                        var modalEl = document.getElementById('modalCarregamento');
+                        var myModal = new bootstrap.Modal(modalEl);
+                        myModal.show();
+                    }
+                });
+            }
+        });
+    </script>
+}

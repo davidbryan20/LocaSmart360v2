@@ -1,0 +1,167 @@
+﻿@{
+    ViewData["Title"] = "Sobre o Projeto & Equipe";
+}
+
+<div class="container-fluid py-4">
+    <!-- Hero / Cabeçalho da Página Sobre -->
+    <div class="card border-0 text-white rounded-4 p-5 mb-5 shadow-sm position-relative overflow-hidden bg-dark">
+        <div class="position-absolute top-0 end-0 p-5 opacity-05 d-none d-lg-block pointer-events-none">
+            <i class="bi bi-info-circle-fill" style="font-size: 16rem; line-height: 0;"></i>
+        </div>
+        <div class="row align-items-center py-3 position-relative z-1">
+            <div class="col-lg-8">
+                <div class="d-inline-flex align-items-center bg-primary bg-opacity-20 text-primary rounded-pill px-3 py-1 mb-4 small fw-bold tracking-wider border border-primary border-opacity-25">
+                    <i class="bi bi-code-slash me-2"></i> PITCH &amp; DOCUMENTAÇÃO TÉCNICA
+                </div>
+                <h1 class="display-5 fw-bold mb-3 tracking-tight">Sobre o <span class="text-primary">LocaSmart360</span></h1>
+                <p class="lead text-light text-opacity-75 mb-0 fs-6" style="line-height: 1.6;">
+                    Solução de engenharia de dados e machine learning voltada para mitigação de fraudes em e-commerce, combinando ingestão em larga escala e triagem comportamental preditiva.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção: O Problema & A Solução -->
+    <div class="row g-4 mb-5">
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-danger bg-opacity-10 text-danger rounded-3 p-3 me-3">
+                        <i class="bi bi-exclamation-octagon fs-4"></i>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-0">O Desafio de Mercado</h4>
+                </div>
+                <p class="text-muted small mb-3" style="line-height: 1.6;">
+                    Fraudes em transações digitais geram perdas bilionárias e atritos operacionais severos para varejistas de médio e grande porte. Sistemas legados lentos ou análises manuais deixam brechas para fraudadores que operam em horários de pico e utilizam padrões anômalos de compras em lotes.
+                </p>
+                <ul class="list-unstyled text-muted small mb-0">
+                    <li class="mb-2"><i class="bi bi-x-circle-fill text-danger me-2"></i> Alta taxa de falsos positivos bloqueando clientes legítimos.</li>
+                    <li class="mb-2"><i class="bi bi-x-circle-fill text-danger me-2"></i> Latência elevada em APIs de validação de pagamento.</li>
+                    <li><i class="bi bi-x-circle-fill text-danger me-2"></i> Falta de rastreabilidade em pipelines de auditoria (LGPD).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-3 p-3 me-3">
+                        <i class="bi bi-shield-check fs-4"></i>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-0">A Solução LocaSmart360</h4>
+                </div>
+                <p class="text-muted small mb-3" style="line-height: 1.6;">
+                    Desenvolvemos um ecossistema integrado em .NET Core MVC acoplado ao Supabase Cloud, automatizando o pipeline de ingestão (ETL) e aplicando um motor heurístico inteligente em tempo real.
+                </p>
+                <ul class="list-unstyled text-muted small mb-0">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Sandbox de Ingestão (ETL):</strong> Processamento em lote de payloads JSON estruturados.</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Scoring Dinâmico:</strong> Heurísticas baseadas em ticket médio, geolocalização e horários atípicos.</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>Compliance Total:</strong> Central de auditoria focada em LGPD e governança transacional.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção: Stack Tecnológica -->
+    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-5">
+        <h5 class="fw-bold text-dark mb-4"><i class="bi bi-cpu text-primary me-2"></i> Stack Tecnológica &amp; Arquitetura</h5>
+        <div class="row g-3 text-center">
+            <div class="col-md-3">
+                <div class="p-3 border rounded-3 bg-light">
+                    <i class="bi bi-window-split fs-3 text-primary mb-2 d-block"></i>
+                    <strong class="text-dark d-block">ASP.NET Core MVC</strong>
+                    <span class="text-muted small">Arquitetura Web &amp; Razor Views</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 border rounded-3 bg-light">
+                    <i class="bi bi-database-fill-gear fs-3 text-primary mb-2 d-block"></i>
+                    <strong class="text-dark d-block">Supabase (PostgreSQL)</strong>
+                    <span class="text-muted small">Banco Analítico &amp; Data Lake</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 border rounded-3 bg-light">
+                    <i class="bi bi-bootstrap-fill fs-3 text-primary mb-2 d-block"></i>
+                    <strong class="text-dark d-block">Bootstrap 5 &amp; Icons</strong>
+                    <span class="text-muted small">Design System &amp; Responsividade</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 border rounded-3 bg-light">
+                    <i class="bi bi-shield-lock-fill fs-3 text-primary mb-2 d-block"></i>
+                    <strong class="text-dark d-block">Heurística &amp; ETL</strong>
+                    <span class="text-muted small">Motor de Risco &amp; Pipelines</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção: Criadores -->
+    <div class="mb-4">
+        <div class="text-center mb-4">
+            <span class="text-uppercase text-primary fw-bold small">Time de Engenharia</span>
+            <h2 class="fw-bold text-dark">Desenvolvedores do Projeto</h2>
+            <p class="text-muted small">Conecte-se com os idealizadores e explore os repositórios de código fonte.</p>
+        </div>
+
+        <div class="row justify-content-center g-4">
+            <!-- Criador 1 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 bg-white">
+                    <div class="avatar-placeholder bg-primary bg-opacity-10 text-primary rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px; font-size: 2rem;">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">David Bryan Viana de Sales</h5>
+                    <p class="text-muted small mb-3">Desenvolvedor Full Stack &amp; Data Scientist</p>
+                    <div class="d-flex justify-content-center gap-2 mt-auto">
+                        <a href="https://www.linkedin.com/in/david-sales01" target="_blank" class="btn btn-outline-primary btn-sm px-3 fw-bold rounded-pill">
+                            <i class="bi bi-linkedin me-1"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/davidbryan20" target="_blank" class="btn btn-dark btn-sm px-3 fw-bold rounded-pill">
+                            <i class="bi bi-github me-1"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Criador 2 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 bg-white">
+                    <div class="avatar-placeholder bg-primary bg-opacity-10 text-primary rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px; font-size: 2rem;">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Bernado Soares de Oliveira</h5>
+                    <p class="text-muted small mb-3">Engenheiro de Dados &amp; Backend</p>
+                    <div class="d-flex justify-content-center gap-2 mt-auto">
+                        <a href="https://www.linkedin.com/in/bernardo-soares-de-oliveira-8a94b2245/" target="_blank" class="btn btn-outline-primary btn-sm px-3 fw-bold rounded-pill">
+                            <i class="bi bi-linkedin me-1"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/" target="_blank" class="btn btn-dark btn-sm px-3 fw-bold rounded-pill">
+                            <i class="bi bi-github me-1"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Criador 3 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center h-100 bg-white">
+                    <div class="avatar-placeholder bg-primary bg-opacity-10 text-primary rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px; font-size: 2rem;">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Eduardo Andrade Dias</h5>
+                    <p class="text-muted small mb-3">Engenheiro de Dados &amp; Backend</p>
+                    <div class="d-flex justify-content-center gap-2 mt-auto">
+                        <a href="https://linkedin.com/in/colega-usuario" target="_blank" class="btn btn-outline-primary btn-sm px-3 fw-bold rounded-pill">
+                            <i class="bi bi-linkedin me-1"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/" target="_blank" class="btn btn-dark btn-sm px-3 fw-bold rounded-pill">
+                            <i class="bi bi-github me-1"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
