@@ -1,77 +1,77 @@
 # LocaSmart360 (LocaWeb360)
 
-An ASP.NET Core MVC web app for online store owners (Locaweb/Tray merchants) to ingest sales data, score every sale for fraud risk, and audit the results.
+Aplicação web ASP.NET Core MVC para lojistas de e-commerce (Locaweb/Tray) ingerirem dados de vendas, calcularem o risco de fraude de cada venda e auditarem os resultados.
 
-Sales are dropped into a file-based "data lake" as JSON, run through an ETL pipeline that applies behavioural fraud rules, and stored in PostgreSQL (Supabase). Merchants can then review sales, audit risky transactions, and manage their product catalog.
+As vendas são depositadas em um "data lake" baseado em arquivos JSON, passam por um pipeline de ETL que aplica regras comportamentais de fraude e são armazenadas em PostgreSQL (Supabase). Em seguida, o lojista pode revisar as vendas, auditar transações de risco e gerenciar o catálogo de produtos.
 
-## Features
+## Funcionalidades
 
-- **Authentication**: registration and login with session-based auth, a strong-password policy, and SHA-256 password hashing. Users have a role (`Cargo`): `Lojista` (merchant, default) or `Administrador`.
-- **Sales ETL / data lake ingestion** (`/Etl/Integracao`): upload a JSON file or paste JSON. Files land in `wwwroot/DataLake/Raw`, get processed and scored, then move to `wwwroot/DataLake/Processed`. Only administrators can ingest data.
-- **Fraud analysis engine**: every sale gets a risk score (0–100) and a written justification. See [Fraud rules](#fraud-rules).
-- **Sales audit** (`/Vendas`): review sales, scores and justifications, including geolocation and client IP.
-- **Product catalog** (`/Produtos`): create, edit and delete products (SKU, name, category, SEO keywords).
-- **ETL run log**: each ETL run is recorded in `EtlLogs` with its status and record count.
-- **Offline demo mode**: if the database is unreachable, the login page shows an offline badge and a demo account can still sign in.
+- **Autenticação**: cadastro e login com sessão, política de senha forte e hash de senha SHA-256. Os usuários possuem um cargo (`Cargo`): `Lojista` (padrão) ou `Administrador`.
+- **ETL de vendas / ingestão no data lake** (`/Etl/Integracao`): envio de arquivo JSON ou colagem do conteúdo. Os arquivos são salvos em `wwwroot/DataLake/Raw`, processados e pontuados, e depois movidos para `wwwroot/DataLake/Processed`. Somente administradores podem ingerir dados.
+- **Motor de análise de fraude**: cada venda recebe uma pontuação de risco (0–100) e uma justificativa em texto. Veja [Regras de fraude](#regras-de-fraude).
+- **Auditoria de vendas** (`/Vendas`): revisão de vendas, pontuações e justificativas, incluindo geolocalização e IP do cliente.
+- **Catálogo de produtos** (`/Produtos`): criação, edição e exclusão de produtos (SKU, nome, categoria, palavras-chave de SEO).
+- **Log de execuções do ETL**: cada execução do ETL é registrada em `EtlLogs` com status e quantidade de registros.
+- **Modo demonstração offline**: se o banco de dados estiver inacessível, a tela de login exibe um selo de offline e uma conta de demonstração ainda consegue entrar.
 
-## Tech stack
+## Tecnologias
 
-- .NET 10 / ASP.NET Core MVC (Razor views, runtime compilation)
-- Entity Framework Core 10 with Npgsql
-- PostgreSQL, hosted on Supabase
-- Bootstrap (bundled in `wwwroot/lib`)
+- .NET 10 / ASP.NET Core MVC (views Razor, compilação em tempo de execução)
+- Entity Framework Core 10 com Npgsql
+- PostgreSQL, hospedado no Supabase
+- Bootstrap (incluído em `wwwroot/lib`)
 
-## Project structure
+## Estrutura do projeto
 
 ```
 LocaWeb360.slnx
 LocaWeb360/
 ├── Controllers/     Autenticacao, Etl, Home, Produtos, Vendas
 ├── Data/            LocaSmartDbContext (EF Core)
-├── DTOs/            ETL request/response objects
-├── Migrations/      EF Core migrations
+├── DTOs/            Objetos de requisição/resposta do ETL
+├── Migrations/      Migrações do EF Core
 ├── Models/          Usuario, Produto, Venda, EtlLog
-├── Repositories/    Venda repository
+├── Repositories/    Repositório de vendas
 ├── Services/        EtlService, AnaliseFraudeService
-├── Utils/           Password hashing helper
-├── Views/           Razor views
-└── wwwroot/DataLake/  Raw (incoming) and Processed JSON files
+├── Utils/           Utilitário de hash de senha
+├── Views/           Views Razor
+└── wwwroot/DataLake/  Arquivos JSON Raw (recebidos) e Processed (processados)
 ```
 
-## Getting started
+## Primeiros passos
 
-### Prerequisites
+### Pré-requisitos
 
 - [.NET 10 SDK](https://dotnet.microsoft.com/download)
-- A PostgreSQL database (a Supabase project works)
-- `dotnet-ef` for migrations: `dotnet tool install --global dotnet-ef`
+- Um banco de dados PostgreSQL (um projeto Supabase funciona)
+- `dotnet-ef` para as migrações: `dotnet tool install --global dotnet-ef`
 
-### Configuration
+### Configuração
 
-The app reads its database connection string from the `SupabaseConnection` key and does not ship one. Keep secrets out of source control by using [.NET user secrets](https://learn.microsoft.com/aspnet/core/security/app-secrets):
+A aplicação lê a string de conexão do banco a partir da chave `SupabaseConnection` e não inclui nenhuma no repositório. Mantenha os segredos fora do controle de versão usando [user secrets do .NET](https://learn.microsoft.com/aspnet/core/security/app-secrets):
 
 ```bash
 cd LocaWeb360
-dotnet user-secrets set "ConnectionStrings:SupabaseConnection" "Host=<host>;Port=5432;Database=postgres;Username=<user>;Password=<password>;SSL Mode=Require"
+dotnet user-secrets set "ConnectionStrings:SupabaseConnection" "Host=<host>;Port=5432;Database=postgres;Username=<usuario>;Password=<senha>;SSL Mode=Require"
 
-# Optional: credentials for the offline demo login
+# Opcional: credenciais do login de demonstração offline
 dotnet user-secrets set "ModoDemo:Email" "demo@example.com"
-dotnet user-secrets set "ModoDemo:Senha" "<demo-password>"
+dotnet user-secrets set "ModoDemo:Senha" "<senha-demo>"
 ```
 
-### Run
+### Executando
 
 ```bash
 cd LocaWeb360
-dotnet ef database update   # apply migrations
+dotnet ef database update   # aplica as migrações
 dotnet run
 ```
 
-The app starts at `http://localhost:5133` (or `https://localhost:7082` with the `https` profile) and opens on the login page.
+A aplicação inicia em `http://localhost:5133` (ou `https://localhost:7082` com o perfil `https`) e abre na tela de login.
 
-## Ingesting sales data
+## Ingestão de dados de vendas
 
-Send a JSON array of sales through the **Integração** screen. Example (see `wwwroot/DataLake/Processed/carga.json` for more):
+Envie um array JSON de vendas pela tela **Integração**. Exemplo (veja `wwwroot/DataLake/Processed/carga.json` para mais):
 
 ```json
 [
@@ -87,20 +87,20 @@ Send a JSON array of sales through the **Integração** screen. Example (see `ww
 ]
 ```
 
-`ProdutoId` must reference an existing product. Sales are sorted by date before processing so each client's history is evaluated in chronological order, and sales whose `VendaId` already exists are skipped.
+O `ProdutoId` deve referenciar um produto existente. As vendas são ordenadas por data antes do processamento, para que o histórico de cada cliente seja avaliado em ordem cronológica, e vendas cujo `VendaId` já existe são ignoradas.
 
-## Fraud rules
+## Regras de fraude
 
-Each sale is scored from 0 to 100 and labelled **NORMAL** (under 40), **ALERT / suspect** (40–74) or **CRITICAL / blocked** (75+). Rules are additive and the score is capped at 100.
+Cada venda recebe uma pontuação de 0 a 100 e é classificada como **NORMAL** (abaixo de 40), **ALERTA / suspeita** (40–74) ou **CRÍTICO / bloqueada** (75+). As regras são cumulativas e a pontuação é limitada a 100.
 
-| Rule | Trigger |
+| Regra | Gatilho |
 | --- | --- |
-| Impossible travel | Speed between this and the client's last sale is over 900 km/h (and over 50 km), or simultaneous sales more than 20 km apart |
-| IP velocity | Another sale from the same IP address within 10 minutes |
-| Card testing | Micro-transaction of R$ 15.00 or less |
-| Post-micro-transaction scam | A large purchase right after a micro-transaction (above 2x or 3x the client's average ticket) |
-| Cooldown | A value 2x/3x or more above the previous purchase within 24h, or 3x/4x or more after 24h |
-| Cold start | First purchase from a new client above R$ 1,000.00 |
-| Off-hours | Purchase between 00:00 and 05:59 that doesn't match the client's usual pattern |
+| Deslocamento impossível | Velocidade entre esta venda e a última do cliente acima de 900 km/h (e mais de 50 km), ou vendas simultâneas a mais de 20 km de distância |
+| Velocidade por IP | Outra venda do mesmo IP em menos de 10 minutos |
+| Teste de cartão | Microtransação de R$ 15,00 ou menos |
+| Golpe pós-microtransação | Compra alta logo após uma microtransação (acima de 2x ou 3x o ticket médio do cliente) |
+| Cooldown | Valor 2x/3x ou mais acima da compra anterior em até 24h, ou 3x/4x ou mais após 24h |
+| Cold start | Primeira compra de um cliente novo acima de R$ 1.000,00 |
+| Horário de risco | Compra entre 00:00 e 05:59 que não condiz com o padrão habitual do cliente |
 
-The rules live in `Services/EtlService.cs`.
+As regras estão em `Services/EtlService.cs`.
